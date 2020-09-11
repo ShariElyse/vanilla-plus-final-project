@@ -1,3 +1,10 @@
 h1 {
   color: aquamarine;
+  text-align: center;
+}
+.container {
+  max-width: 600px;
+}
+.row {
+  text-align: center;
 }
