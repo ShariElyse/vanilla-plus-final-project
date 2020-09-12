@@ -2,8 +2,15 @@ h1 {
   color: aquamarine;
   text-align: center;
 }
+body {
+  font-family: "Comfortaa", cursive;
+  font-family: "Raleway", sans-serif;
+}
 .container {
+  border-style: solid;
+  border-radius: 22px;
   max-width: 600px;
+  padding: 30px 20px;
 }
 .row {
   text-align: center;
