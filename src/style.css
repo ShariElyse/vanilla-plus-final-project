@@ -1,10 +1,13 @@
+body {
+  font-family: "Comfortaa", cursive;
+  font-family: "Raleway", sans-serif;
+}
 h1 {
   color: aquamarine;
   text-align: center;
 }
-body {
-  font-family: "Comfortaa", cursive;
-  font-family: "Raleway", sans-serif;
+p {
+  text-align: center;
 }
 .container {
   border-style: solid;
@@ -15,6 +18,8 @@ body {
 .row {
   text-align: center;
 }
-p {
-  text-align: center;
+.timeStamp {
+  position: relative;
+  left: 195px;
+  top: 25px;
 }
