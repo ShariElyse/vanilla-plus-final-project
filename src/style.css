@@ -18,6 +18,9 @@ p {
 .row {
   text-align: center;
 }
+form {
+  margin: 20px auto;
+}
 .timeStamp {
   position: relative;
   left: 195px;
