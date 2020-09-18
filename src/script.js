@@ -45,3 +45,13 @@ function displayTimeDate() {
 }
 
 displayTimeDate();
+
+function displayWeatherData(response) {
+  console.log(response);
+}
+
+let city = `New York`;
+let apiKey = `95411422750c0e03350b1c829891759b`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+axios.get(apiUrl).then(displayWeatherData);
