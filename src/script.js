@@ -46,12 +46,35 @@ function displayTimeDate() {
 
 displayTimeDate();
 
-function displayWeatherData(response) {
-  console.log(response);
+function displayInput(event) {
+  console.log(event);
+  event.preventDefault();
+  let city = document.querySelector("#search-city").value;
+  let apiKey = `95411422750c0e03350b1c829891759b`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+
+  function citySubmission() {
+    let cityValue = document.querySelector("h2");
+    cityValue.innerHTML = city;
+  }
+
+  citySubmission();
+
+  function displayWeatherData(response) {
+    console.log(response);
+    let temp = document.querySelector("h3");
+    temp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
+
+    let weatherDescription = document.querySelector("#weather-description");
+    weatherDescription.innerHTML = response.data.weather[0].description;
+
+    let humidity = document.querySelector("#humidity");
+    humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+
+    let windSpeed = document.querySelector("#wind-speed");
+    windSpeed.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}mph`;
+  }
+  axios.get(apiUrl).then(displayWeatherData);
 }
-
-let city = `New York`;
-let apiKey = `95411422750c0e03350b1c829891759b`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-
-axios.get(apiUrl).then(displayWeatherData);
+let cityInput = document.querySelector("#city-search-form");
+cityInput.addEventListener("submit", displayInput);

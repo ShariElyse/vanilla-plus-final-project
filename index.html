@@ -37,31 +37,33 @@
         </div>
       </div>
       <div class="row">
-        <div class="col">Partly cloudy</div>
+        <div class="col" id="weather-description">Partly cloudy</div>
       </div>
       <div class="row">
         <div class="col">
           <h3>
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-              alt="partly_cloudy"
-            />
+            <span id="description-icon"
+              ><img
+                src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                alt="partly_cloudy"
+            /></span>
             88°F
           </h3>
         </div>
       </div>
       <div class="row">
-        <div class="col-4">Precipitation: 10%</div>
-        <div class="col-4">Humidity: 82%</div>
-        <div class="col-4">Wind: 5mph</div>
+        <div class="col-4" id="precipitation">Precipitation: 10%</div>
+        <div class="col-4" id="humidity">Humidity: 82%</div>
+        <div class="col-4" id="wind-speed">Wind: 5mph</div>
       </div>
-      <form action="search">
+      <form action="search" id="city-search-form">
         <div class="row">
           <div class="col-10">
             <input
               type="text"
               class="form-control"
               placeholder="Enter your city..."
+              id="search-city"
             />
           </div>
           <div class="col-2">
