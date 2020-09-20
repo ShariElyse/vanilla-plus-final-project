@@ -61,9 +61,8 @@ function displayInput(event) {
   citySubmission();
 
   function displayWeatherData(response) {
-    console.log(response);
-    let temp = document.querySelector("h3");
-    temp.innerHTML = `${Math.round(response.data.main.temp)}°F`;
+    let temp = document.querySelector("#current-weather");
+    temp.innerHTML = ` ${Math.round(response.data.main.temp)}°F`;
 
     let weatherDescription = document.querySelector("#weather-description");
     weatherDescription.innerHTML = response.data.weather[0].description;
@@ -73,6 +72,21 @@ function displayInput(event) {
 
     let windSpeed = document.querySelector("#wind-speed");
     windSpeed.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}mph`;
+
+    let feelsLike = document.querySelector("#feels-like");
+    feelsLike.innerHTML = `Feels like: ${Math.round(
+      response.data.main.feels_like
+    )}°F`;
+
+    let weatherIcon = document.querySelector("#description-icon");
+    weatherIcon.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    weatherIcon.setAttribute("alt", response.data.weather[0].description);
+
+    console.log(response);
+    console.log(response.data.weather[0].icon);
   }
   axios.get(apiUrl).then(displayWeatherData);
 }
