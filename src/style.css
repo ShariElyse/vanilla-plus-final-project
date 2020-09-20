@@ -13,6 +13,10 @@ span #current-weather {
 p {
   text-align: center;
 }
+.btn-group-toggle {
+  right: 160px;
+  top: 5px;
+}
 .container {
   border-style: solid;
   border-radius: 22px;
@@ -27,6 +31,6 @@ form {
 }
 .timeStamp {
   position: relative;
-  left: 210px;
-  top: 25px;
+  left: 170px;
+  top: 35px;
 }
