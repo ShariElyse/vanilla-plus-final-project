@@ -86,6 +86,8 @@ function displayInput(event) {
 
     function displayFahrenheitTemp() {
       event.preventDefault();
+      fahrenheit.classList.add("active");
+      tempConverter.classList.remove("active");
 
       let temp = document.querySelector("#current-weather");
       temp.innerHTML = ` ${Math.round(response.data.main.temp)}°F`;
@@ -98,6 +100,8 @@ function displayInput(event) {
 
     function displayCelsiusTemp() {
       event.preventDefault();
+      tempConverter.classList.add("active");
+      fahrenheit.classList.remove("active");
 
       let celsiusTemp = document.querySelector("#current-weather");
       celsiusTemp.innerHTML = ` ${Math.round(
