@@ -17,11 +17,20 @@ p {
   right: 160px;
   top: 5px;
 }
+.btn-primary {
+  position: relative;
+  right: 15px;
+}
+
 .container {
   border-style: solid;
   border-radius: 22px;
   max-width: 600px;
   padding: 30px 20px;
+}
+.currentLocation {
+  position: relative;
+  right: 28px;
 }
 .row {
   text-align: center;
