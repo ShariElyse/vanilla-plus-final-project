@@ -47,7 +47,6 @@ function displayTimeDate() {
 displayTimeDate();
 
 function displayInput(event) {
-  console.log(event);
   event.preventDefault();
   let city = document.querySelector("#search-city").value;
   let apiKey = `95411422750c0e03350b1c829891759b`;
@@ -85,8 +84,36 @@ function displayInput(event) {
     );
     weatherIcon.setAttribute("alt", response.data.weather[0].description);
 
-    console.log(response);
-    console.log(response.data.weather[0].icon);
+    function displayFahrenheitTemp() {
+      event.preventDefault();
+
+      let temp = document.querySelector("#current-weather");
+      temp.innerHTML = ` ${Math.round(response.data.main.temp)}°F`;
+
+      let feelsLike = document.querySelector("#feels-like");
+      feelsLike.innerHTML = `Feels like: ${Math.round(
+        response.data.main.feels_like
+      )}°F`;
+    }
+
+    function displayCelsiusTemp() {
+      event.preventDefault();
+
+      let celsiusTemp = document.querySelector("#current-weather");
+      celsiusTemp.innerHTML = ` ${Math.round(
+        ((response.data.main.temp - 32) * 5) / 9
+      )}°C`;
+
+      let celsiusFeel = document.querySelector("#feels-like");
+      celsiusFeel.innerHTML = `Feels like: ${Math.round(
+        ((response.data.main.feels_like - 32) * 5) / 9
+      )} °C`;
+    }
+    let tempConverter = document.querySelector("#celsius");
+    tempConverter.addEventListener("click", displayCelsiusTemp);
+
+    let fahrenheit = document.querySelector("#fahrenheit");
+    fahrenheit.addEventListener("click", displayFahrenheitTemp);
   }
   axios.get(apiUrl).then(displayWeatherData);
 }
