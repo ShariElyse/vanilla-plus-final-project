@@ -55,6 +55,9 @@ function displayInput(event) {
   function citySubmission() {
     let cityValue = document.querySelector("h2");
     cityValue.innerHTML = city;
+    if (city.length <= 0) {
+      alert(`🙊 Oops! You forgot to enter your city.`);
+    }
   }
 
   citySubmission();
