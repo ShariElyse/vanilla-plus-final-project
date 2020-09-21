@@ -163,6 +163,41 @@ function displayDefaultWeather() {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     iconDefault.setAttribute("alt", response.data.weather[0].description);
+
+    function displayFahrenheitTemp() {
+      event.preventDefault();
+      fahrenheit.classList.add("active");
+      tempConverter.classList.remove("active");
+
+      let temp = document.querySelector("#current-weather");
+      temp.innerHTML = ` ${Math.round(response.data.main.temp)}°F`;
+
+      let feelsLike = document.querySelector("#feels-like");
+      feelsLike.innerHTML = `Feels like: ${Math.round(
+        response.data.main.feels_like
+      )}°F`;
+    }
+
+    function displayCelsiusTemp() {
+      event.preventDefault();
+      tempConverter.classList.add("active");
+      fahrenheit.classList.remove("active");
+
+      let celsiusTemp = document.querySelector("#current-weather");
+      celsiusTemp.innerHTML = ` ${Math.round(
+        ((response.data.main.temp - 32) * 5) / 9
+      )}°C`;
+
+      let celsiusFeel = document.querySelector("#feels-like");
+      celsiusFeel.innerHTML = `Feels like: ${Math.round(
+        ((response.data.main.feels_like - 32) * 5) / 9
+      )} °C`;
+    }
+    let tempConverter = document.querySelector("#celsius");
+    tempConverter.addEventListener("click", displayCelsiusTemp);
+
+    let fahrenheit = document.querySelector("#fahrenheit");
+    fahrenheit.addEventListener("click", displayFahrenheitTemp);
   }
 
   axios.get(apiUrl).then(defaultWeather);
