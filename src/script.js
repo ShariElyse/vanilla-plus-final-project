@@ -127,3 +127,45 @@ function displayInput(event) {
 }
 let cityInput = document.querySelector("#city-search-form");
 cityInput.addEventListener("submit", displayInput);
+
+function displayDefaultWeather() {
+  let city = "New York";
+  let apiKey = "95411422750c0e03350b1c829891759b";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+
+  function defaultWeather(response) {
+    console.log(response);
+
+    let cityDefault = document.querySelector("h2");
+    cityDefault.innerHTML = response.data.name;
+    console.log(city);
+
+    let tempDefault = document.querySelector("#current-weather");
+    tempDefault.innerHTML = ` ${Math.round(response.data.main.temp)}°F`;
+
+    let descriptionDefault = document.querySelector("#weather-description");
+    descriptionDefault.innerHTML = response.data.weather[0].description;
+
+    let humidityDefault = document.querySelector("#humidity");
+    humidityDefault.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+
+    let windDefault = document.querySelector("#wind-speed");
+    windDefault.innerHTML = `Wind: ${Math.round(response.data.wind.speed)}mph`;
+
+    let feelDefault = document.querySelector("#feels-like");
+    feelDefault.innerHTML = `Feels like: ${Math.round(
+      response.data.main.feels_like
+    )}°F`;
+
+    let iconDefault = document.querySelector("#description-icon");
+    iconDefault.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    iconDefault.setAttribute("alt", response.data.weather[0].description);
+  }
+
+  axios.get(apiUrl).then(defaultWeather);
+}
+
+displayDefaultWeather();
