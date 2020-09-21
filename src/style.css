@@ -6,12 +6,16 @@ h1 {
   text-align: center;
   margin: 50px auto 20px auto;
 }
+h2 {
+  text-transform: capitalize;
+}
 h3,
 span #current-weather {
   font-size: 50px;
 }
 p {
   text-align: center;
+  margin-top: 30px;
 }
 .btn-group-toggle {
   right: 160px;
@@ -26,6 +30,7 @@ p {
 .container {
   border-style: solid;
   border-radius: 22px;
+  box-shadow: 2px 10px 40px #b0aebb;
   max-width: 600px;
   padding: 30px 20px;
 }
@@ -39,4 +44,8 @@ form {
   position: relative;
   left: 170px;
   top: 35px;
+}
+#weather-description {
+  text-transform: capitalize;
+  line-height: 40px;
 }

@@ -49,6 +49,7 @@ displayTimeDate();
 function displayInput(event) {
   event.preventDefault();
   let city = document.querySelector("#search-city").value;
+  city = city.trim();
   let apiKey = `95411422750c0e03350b1c829891759b`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
 
